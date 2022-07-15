@@ -18,13 +18,11 @@ class Itens {
     listar(){
         let listas = document.getElementById('listas');
         listas.innerText = ''
-
         for(let i = 0; i < this.array.length; i++) {       
             let nome = listas 
-            nome.innerText  += `\n ${this.array[i].id}-`
-            nome.innerText  += `${this.array[i].nomeItem}` 
-            let img = document.createElement('img')
-            img.src += 'excluir.png'                
+            nome.innerHTML  += `<br> ${this.array[i].id}- ${this.array[i].nomeItem} `
+            let img = document.createElement('img')  
+            img.src = 'excluir.png'                
             nome.appendChild(img)   
             img.setAttribute('onclick', "item.excluir("+ this.array[i].id+")")
 
@@ -35,7 +33,6 @@ class Itens {
         this.array.push(itens);
         this.id++;
     }
-
 //
     lerDados() {
         var itens = {}
@@ -47,10 +44,12 @@ class Itens {
     }
 //
     excluir(id) {
+        let listas = document.getElementById('listas');
        for(let i = 0; i < this.array.length; i++) {
-        if(this.array[i].id == id){     
+        if(this.array[i].id == id){          
+            let nome = listas
             this.array.splice(i, 1)
-
+            this.id--
         }
        }
     }
@@ -70,7 +69,6 @@ class Itens {
 
         return true
     }
-
 }
 
 //
