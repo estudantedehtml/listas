@@ -20,12 +20,11 @@ class Itens {
         listas.innerText = ''
         for(let i = 0; i < this.array.length; i++) {       
             let nome = listas 
-            nome.innerHTML  += `<br> ${this.array[i].id}- ${this.array[i].nomeItem} `
+            nome.innerHTML  += `<p><br> ${this.array[i].id}- ${this.array[i].nomeItem}<p> `
             let img = document.createElement('img')  
             img.src = 'excluir.png'                
             nome.appendChild(img)   
             img.setAttribute('onclick', "item.excluir("+ this.array[i].id+")")
-
         }
     }
 //
@@ -38,18 +37,14 @@ class Itens {
         var itens = {}
         itens.id = this.id       
         itens.nomeItem = document.getElementById('text').value;
-        
-
         return itens;
     }
 //
-    excluir(id) {
+    excluir(id) {;
         let listas = document.getElementById('listas');
        for(let i = 0; i < this.array.length; i++) {
-        if(this.array[i].id == id){          
-            let nome = listas
-            this.array.splice(i, 1)
-            this.id--
+        if(this.array[i].id == id){ 
+            this.id        
         }
        }
     }
@@ -70,7 +65,6 @@ class Itens {
         return true
     }
 }
-
 //
 var item = new Itens();
 
